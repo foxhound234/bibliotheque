@@ -12,7 +12,20 @@
 </head>
 <body>
 <div class='form-group'>
-<p> etts </p>
+<?php
+$options = array(
+  'tous'=>'tout',
+  'auteur'         => 'auteur',
+  'titre'           => 'Titre');
+
+echo  form_open('Visiteur/Accueil');
+
+echo form_input(array('name'=>'txtRecherche','value'=>'','pattern'=>'[a-zA-Z]*','required'=>'required','class'=>'form-control'));
+echo form_dropdown('filtre', $options,'Filtre');
+echo form_submit(array('name'=>'Btnrecherche','value'=>'recherché','class'=>"btn btn-primary"));
+
+echo form_close();
+?>
 </div>
 </body>
 </html>
