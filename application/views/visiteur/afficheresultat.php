@@ -11,13 +11,19 @@
     <script src="main.js"></script>
 </head>
 <body>
-<table class="table">
-<thead>
 <div>
-<?php foreach($lesoeuvres as $unoeuvre):
-echo '<tr>
-<td>'.$unoeuvre['titre'].'</td>
 
+<?php
+foreach($lesoeuvres as $unoeuvre):
+echo '
+<div>
+
+<div>'.$unoeuvre['couverture'].'</div>
+<div class=col-xs-12 col-sm-8 col-md-9 col-lg-9>
+<div class=bloccontainer>
+'.$unoeuvre['titre'].'
+</div>
+</div>
  </tr>';
 endforeach?>
 

@@ -15,8 +15,8 @@
 <?php
 $options = array(
   'tous'=>'tout',
-  'auteur'         => 'auteur',
-  'titre'           => 'Titre');
+  'auteur'=> 'auteur',
+  'titre'=> 'Titre');
 
 echo  form_open('Visiteur/Accueil');
 
