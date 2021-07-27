@@ -25,7 +25,7 @@
        </thead>
 
       <tbody>
-      <?php foreach($lesoeuvres as $unoeuvre):
+      <?php foreach($auteurOeuvres as $unoeuvre):
         echo '<tr>
         <td><img width="25%" src="'.img_url($unoeuvre['couverture']).'"></td>
         <td>'.anchor('Visiteur/afficheoeuvre/'.$unoeuvre['idoeuvre'],$unoeuvre['titre']).' 
@@ -36,20 +36,9 @@
         </tr>';
       endforeach ?>
 
-
-
       </tbody>
 
-
-
-
-
-
     </table>
-
-
-
-
 
  </div>
 

@@ -16,21 +16,16 @@ class Visiteur extends CI_Controller
              'filtre'=>$this->input->post('filtre')
             ); 
          
-
-
         
            $data['lesoeuvres']=$this->modeleOeuvre->Recherche($Recherche)->result_array();
-           
-           $this->load->view('Templates/entete');
-           $this->load->view('visiteur/afficheresultat',$data);
-           $this->load->view('Templates/piedpage');
-         
-        
-           
-          
+           $this->lespages('visiteur/afficheresultat',$data);
+            
            
         }else {
-             $this->load->view('visiteur/accueil');  
+       
+           $data['titre']='titre';
+
+            $this->lespages('visiteur/accueil',$data);
         }
      
 
@@ -38,10 +33,19 @@ class Visiteur extends CI_Controller
 
    public function afficheoeuvre($idoeuvre){
     $data['oeuvre']=$this->modeleOeuvre->Oeuvre($idoeuvre);
-
-
+    
+    $this->lespages('visiteur/afficheoeuvre',$data);
+    
    }
 
+   public function afficheauteur($nomauteur){
+   $data['auteurOeuvres']=$this->modeleOeuvre->Auteur($nomauteur);
+
+   }
+   
+   public function afficheEditeur($nomediteur){
+       
+   }
     public function lespages($pagesprincipal,$data) 
     {
       $this->load->view('Templates/entete');
