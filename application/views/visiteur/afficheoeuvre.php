@@ -10,7 +10,8 @@
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+
+  
 </head>
 <body>
   <?php
@@ -102,7 +103,7 @@
   echo '<tr class="sit1">
   <td headers="row1 coldmt_rsv"> 
   <div class="inlinebloc">
-  '.anchor('Compte/Reservation/'.$undispo['idoeuvre'],'Reservé').'
+  <button type="button" class="btn btn-primary" onclick="myFunction('.$undispo['idmediatheque'].','.$this->session->profil.')"> Reservée </button>
   </div> 
  </td>
 
@@ -168,6 +169,38 @@
    </div>
     </div>
   </div>
+
+  <script>
+      
+     function myFunction($id,$session){
+       
+       $idoeuvre=<?php echo $oeuvre['idoeuvre']?>
+       if ($session) {
+
+
+       }else{
+        $.ajax({
+           url: '/Reservation',
+           type: 'POST',
+           data: {idmediatheque:$id,idproprietaire:$session,idoeuvre:$idoeuvre},
+           error: function() {
+              alert('Something is wrong');
+           },
+           success: function(data) {
+                alert("Reservation Reussie"); 
+                 
+           }
+        });
+        
+       }
+
+         
+     
+     
+    
+     }
+   
+   </script>
 
 </body>
 </html>

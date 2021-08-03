@@ -67,7 +67,7 @@ class modeleOeuvre extends CI_Model{
      }
 
   public function Disponibilité($idoeuvre){
-   $requete="select oeuvre.idoeuvre,isbn,nomlocalisation,nomespace,disponibilité,nom
+   $requete="select oeuvre.idoeuvre,isbn,nomlocalisation,nomespace,disponibilité,nom,mediatheque.idmediatheque
    FROM oeuvre,mediatheque,localisation,espace,disponible 
    WHERE disponible.idoeuvre=oeuvre.idoeuvre
    and disponible.idlocalisation=localisation.idlocalisation

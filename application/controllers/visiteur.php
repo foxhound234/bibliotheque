@@ -43,16 +43,20 @@ class Visiteur extends CI_Controller
         }else {
        
            $data['titre']='titre';
-
+           $data['Erreur']='';
             $this->lespages('visiteur/accueil',$data);
         }
      
 
     }
-
+  public function RechercheDynamique(){
+    $Recherche=$this->input->post('txtRecherche');
+    echo $Recherche;
+  }
    public function afficheoeuvre($idoeuvre){
     $data['oeuvre']=$this->modeleOeuvre->Oeuvre($idoeuvre);
     $data['lesdisponibilites']=$this->modeleOeuvre->Disponibilité($idoeuvre)->result_array();
+    
 
     $this->lespages('visiteur/afficheoeuvre',$data);
     

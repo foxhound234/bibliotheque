@@ -52,6 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller']='welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['Accueil']='Visiteur/Accueil';
+$route['Reservation'] = 'Compte/Reservation';
+$route['Rechercheajax'] = 'Visiteur/RechercheDynamique';
+$route['Deconnexion']='Compte/Deconnexion';
 
 /*
 Controller visiteur*/

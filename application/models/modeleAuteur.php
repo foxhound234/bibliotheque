@@ -6,4 +6,5 @@ class modeleAuteur extends CI_Model
         $this->load->database();
     }
     
+    
 }
