@@ -28,7 +28,7 @@
 
        <?php if ($this->session->profil=='C') : ?>>
         <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
-        <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Compte</a></li>
+        <li><a href="<?php echo site_url('Compte/afficheCompte') ?>">Compte</a></li>
         <li class="active  navbar-text"><a href="<?php echo site_url('Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
         <?php endif;?>
     </ul>

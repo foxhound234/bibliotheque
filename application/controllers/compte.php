@@ -34,7 +34,7 @@ class compte extends CI_Controller
              'mdp'=>$this->input->post('txtMdp')
             ); 
  
-            $utilisateur=$this->modelePret->Connexion($Connexion);
+            $utilisateur=$this->modeleProprietaire->Connexion($Connexion);
          if ($utilisateur===null) {
           $data['Erreur']='Erreur  de Connexion';
           $this->lespages('Visiteur/Accueil',$data);
@@ -59,8 +59,35 @@ class compte extends CI_Controller
      }
 
      public function afficheCompte(){
-      $Reservation=$this->modelePret->Connexion($Connexion);
-      $Pret=$this->modelePret->Connexion($Connexion);
+       
+      $Compte=$this->modeleProprietaire->Connexion($this->session->Noadherent);
+      $NombredePret=$this->modelePret->Pretutilisateur($this->session->Noadherent);
+      $Reservationattente=$this->modeleReservation->Reservationattente($this->session->Noadherent);
+      $ReservationDisponible=$this->modeleReservation->ReservationDisponible($this->session->Noadherent);
+    
+     
+      if ($Reservationattente===null) {
+        $data['nbattente']=0;
+      }else {
+        $data['nbattente']=$Reservationattente->num_rows();
+      }
+
+      if ($ReservationDisponible===null) {
+        $data['nbdisponible']=0;
+      }else {
+        $data['nbdisponible']=$ReservationDisponible->num_rows();
+      }
+       
+     if ($NombredePret===null) {
+
+      $data['nbpret']=0;
+     }else {
+      $data['nbpret']=$NombredePret->num_rows();
+     }
+     
+       $data['Compte']=$Compte;
+
+       $this->lespages('compte/affichecompte',$data);
 
      }
 

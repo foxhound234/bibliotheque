@@ -7,15 +7,21 @@ class modelePret extends CI_Model
     }
     public function Reservation($DonnesReservation)
     {
+     
         $this->db->insert('pret',$DonnesReservation);
         return $this->db->insert_id();
     }
     
-    public function Connexion($DonnesReservation)
+    public function Pretutilisateur($noadherent)
     {
-        
-        $requete=$this->db->get_where('propriétaires',$DonnesReservation);
-        return $requete->row();
+    
+        $requete="
+        select * from pret 
+        WHERE 
+        idpropriétaire='".$noadherent."'";
+
+        $query=$this->db->query($requete);
+        return $query->row_array();
 
     }
 }

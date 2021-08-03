@@ -7,9 +7,15 @@ class modeleProprietaire extends CI_Model
     }
     
     public function Connexion($putilisateur){
-        $requete = $this->db->get_where('propriétaires',$pclient);
-        return $requete->row(); // retour d'une seule ligne !
+        
+        $requete="
+        select * from propriétaires 
+        WHERE 
+        idpropriétaire='".$putilisateur."'";
+
+        $query=$this->db->query($requete);
+        return $query->row_array();
         // retour sous forme d'objets
     }
-    
+   
 }
